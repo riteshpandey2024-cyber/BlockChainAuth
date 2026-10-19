@@ -2,9 +2,11 @@
 
 A simulated blockchain that demonstrates the product-authenticity design: registered nodes, producers, consensus, each node's own blocks, a central monitor that shows where chains differ, and the Authenticity check on a scanned tag.
 
-- **Backend:** Python 3.12, FastAPI, `eth-account` (real secp256k1 signing and signer recovery). No WorkIndia packages.
+- **Backend:** Python 3.12, FastAPI, `eth-account` (real secp256k1 signing and signer recovery).
 - **Frontend:** React + Vite + TypeScript. FastAPI serves the built UI, so one process runs everything.
 - **The chain is simulated in code** (several in-process nodes with a controllable network), not real Ethereum nodes. That is what makes forks, faulty nodes and network splits easy to show.
+
+For installation steps with troubleshooting and a guided walkthrough, see [INSTALLATION.md](../INSTALLATION.md). For how the code works, see [IMPLEMENTATION.md](../IMPLEMENTATION.md).
 
 ## Run it with Docker (recommended)
 
@@ -68,12 +70,12 @@ Tests: `cd server && .venv/bin/python -m pytest tests`
 
 ## Design decisions in the code
 
-- **The producer is the only signer.** The tag is written once. A handover changes the owner on the chain; the tag and the registered signer do not change (see the glossary and the paper notes in the design document).
+- **The producer is the only signer.** The tag is written once. A handover changes the owner on the chain; the tag and the registered signer do not change (see [GLOSSARY.md](../GLOSSARY.md) and [PROJECT_DESIGN_EXPLAINED.md](../PROJECT_DESIGN_EXPLAINED.md)).
 - **The signed label is the product ID plus the tag identifier**, bound to the contract address. The write and read counters are checked separately and are not signed, so the chip can raise the read counter on every scan.
 - **A read is answered by one node; a transaction is agreed by the network.** The scan's contract check is a read. The read-counter update is a transaction.
 - **Attack names follow dNAS:** *modification* (signature does not match), *cloning* (tag identifier differs), *reapplication* (counters inconsistent).
 - **Verdicts:** `genuine`, `suspicious`, and `unconfirmed` (the tag looked fine but the network could not agree in time, for example while the clock is paused).
-- **One consensus rule, Proof-of-Authority:** every node is a validator and they take turns; an in-turn block has weight 2, an out-of-turn block weight 1, and every node follows the heaviest chain. A split network keeps building on both sides, which is what produces visible forks. (BFT voting was built and then removed to keep the demo simple.)
+- **One consensus rule, Proof-of-Authority:** every node is a validator and they take turns; an in-turn block has weight 2, an out-of-turn block weight 1, and every node follows the heaviest chain. A split network keeps building on both sides, which is what produces visible forks.
 - Transaction replay protection uses a random per-transaction nonce recorded in state.
 
 ## Known limits
