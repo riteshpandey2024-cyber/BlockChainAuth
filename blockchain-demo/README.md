@@ -50,7 +50,7 @@ Tests: `cd server && .venv/bin/python -m pytest tests`
 | Network | Every node's own latest blocks side by side, coloured by block hash. Pause and step the clock, change message delay, **split the network** into groups, heal it, add nodes (each new node copies the chain and joins the validator list automatically), and set a node's behaviour (honest, offline, sends two different blocks, proposes a forged block). |
 | Parties | Add producers, participants and customers. Producers and participants are approved on the chain by the administrator. |
 | Products | Register a product (record off-chain, hash on-chain, tag signed once by the producer), hand over, sell. "Acting as" lets you try a handover as a non-owner and see the contract refuse it. Details show on-chain history, failed checks logged on the product, and a button that edits the record in the server database. |
-| Scan | Virtual tags. Tap a tag (the chip raises its own read counter), edit its fields, copy it onto a blank chip, replay the last scan, or move it to a fake item. Choose which node answers the read, and whether to trust the server database. |
+| Scan | Virtual tags. Tap a tag (the phone sends the read counter exactly as the tag shows it; after an accepted scan the record and the tag move up by one), edit its fields, copy it onto a blank chip, replay the last scan, or move it to a fake item. Choose which node answers the read, and whether to trust the server database. |
 | Monitor | The central view: which nodes share a head, which differ, the first different block, and every block position with all competing blocks and who holds them. |
 | Events | Live log: transactions, proposals, votes, commits, rejected blocks, chain switches, syncs. |
 
