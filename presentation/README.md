@@ -1,6 +1,6 @@
 # Authenticity Chain: presentation deck
 
-A React website that behaves like a slide deck: 34 slides in five parts (the problem, the research, how it works,
+A React website that behaves like a slide deck: 33 slides in five parts (the problem, the research, how it works,
 the live demo, limitations), ending with a thank-you slide. Content comes from `../PPT_PROMPT.md`, the four papers in
 `../papers`, and the demo in `../blockchain-demo`.
 

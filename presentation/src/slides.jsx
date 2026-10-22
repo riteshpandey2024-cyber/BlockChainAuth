@@ -475,20 +475,6 @@ const rawSlides = [
     ),
   },
   {
-    section: "Limitations", part: 4, steps: 0, title: "Limits of the prototype",
-    notes: "Be direct: this is a simulation (on one machine there is no real consensus protection), the tag hardware is simulated, and the server holds every key.",
-    render: () => (
-      <>
-        <Head section="Limitations" title="Limits of the prototype" />
-        <div className="grid3">
-          <Card title="A simulation">Virtual nodes in one program, not a real network. State is lost on restart.</Card>
-          <Card title="Simulated tags">Real NFC chips are untested. A printed QR can't hold a changing counter.</Card>
-          <Card title="The server holds every key">A compromised server could sign valid-looking tags. No key revocation. No login on the API.</Card>
-        </div>
-      </>
-    ),
-  },
-  {
     section: "Limitations", part: 4, steps: 0, title: "Limits of the papers: scale, trust and keys",
     notes: "These are limits the papers describe themselves. Scalability: Yiu's Toward paper says decentralised systems are generally less scalable because consensus is needed for every state change, extra validation layers add steps, and new nodes take a long time to sync as the chain grows; Ho Dac tested 20 nodes on one PC. Trust: in dNAS there is one elected administrator, the first nodes are added without a vote, and upgrading contracts needs trust in the administrator. Keys: the Toward paper notes keys are reused with no rotation, so a stolen key could be used to flood the network.",
     render: () => (
