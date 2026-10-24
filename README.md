@@ -1,4 +1,4 @@
-# BlockChainAuth: Blockchain-Based Product Authenticity Checker
+# BlockChainAuth: Blockchain-Based Product Authenticity Checker:
 
 A system that lets a buyer check whether a product is genuine. Each product carries a digitally signed Tag. A shared, tamper-evident record kept by several independent organizations holds the facts that must not change: which products exist, who owns them, a fingerprint of each product's details, and how often each Tag has been read. Every scan is checked in layers against the Tag, the server's records and the shared record.
 
